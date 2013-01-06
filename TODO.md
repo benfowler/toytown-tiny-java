@@ -1,6 +1,15 @@
 TO DO
 =====
 
+This tiny version of Toytown is merely an attempt to see how small a working
+Lisp interpreter can be made and likely won't be enhanced (only shrunk
+further)
+
+However, the following list of known issues is relevant to the initial
+baseline code, which is being developed in the separate 
+[toytown-lispy-java][1] project.
+
+
 Major Problems
 --------------
 
@@ -35,3 +44,6 @@ Future
 
 * Compilation of procedures to bytecode would be desirable, for performance 
   reasons
+
+
+[1]: https://github.com/benfowler/toytown-lispy-java

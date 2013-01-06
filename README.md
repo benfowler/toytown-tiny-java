@@ -1,16 +1,20 @@
 Overview
 ========
 
-[toytown-lispy-java][1] is a Java re(re-re-re)implementation of Peter Norvig's 
+[toytown-tiny-java][1] is a Java re(re-re-re)implementation of Peter Norvig's 
 famous hack demonstrating how to implement Lisp in less than 100 lines of 
-Python. 
+Python.  
 
-Unlike Python, Java's language features do not give a lot away for free, so
-the author had a lot more work to do, and the resulting code weighed in at 
-_slightly_ more than 100 lines of Java. 
+However, the author has had a /little/ trouble getting the Java version below
+about 600 lines.  Unlike Python, Java's language features do not give a lot 
+away for free, so the author had a lot more work to do. 
 
 This isn't really a problem, because the code is still quite compact and 
 readable, and the built JAR weighs in at a mere 18 kilobytes in size.  
+
+
+Background
+==========
 
 Norvig actually wrote _two_ versions of Lispy: [the first][2], which was his
 first attempt to write a Lisp interpreter in less than 100 lines of code; this
@@ -94,6 +98,6 @@ way to go before it's truly useful.
         (.isInfinite fred))
 
 
-[1]: https://github.com/benfowler/toytown-lispy-java
+[1]: https://github.com/benfowler/toytown-tiny-java
 [2]: http://norvig.com/lispy.html
 [3]: http://norvig.com/lispy2.html
