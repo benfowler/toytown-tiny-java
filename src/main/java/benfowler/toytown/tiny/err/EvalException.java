@@ -19,23 +19,16 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny.err;
 
-public class ParseException extends LispException {
 
-	/** Default serial version ID */
-	private static final long serialVersionUID = 1L;
+@SuppressWarnings("serial")
+public class EvalException extends RuntimeException {
 
-	private final Errors error;
+	final Errors error;
 
-	public ParseException(final Errors error, final Object ... args) {
+	public EvalException(final Errors error, final Object ... args) {
 		super(error.getMessage(args));
 		this.error = error;
 	}
-
-	@Override
-	public Errors getError() {
-		return error;
-	}
-
 }

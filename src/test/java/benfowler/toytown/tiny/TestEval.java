@@ -19,11 +19,11 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny;
 
-import static au.id.bjf.toylisp.SpecialForm.BEGIN;
-import static au.id.bjf.toylisp.SpecialForm.IF;
-import static au.id.bjf.toylisp.SpecialForm.QUOTE;
+import static benfowler.toytown.tiny.SpecialForm.BEGIN;
+import static benfowler.toytown.tiny.SpecialForm.IF;
+import static benfowler.toytown.tiny.SpecialForm.QUOTE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -36,6 +36,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import benfowler.toytown.tiny.Builtins;
+import benfowler.toytown.tiny.Environment;
+import benfowler.toytown.tiny.Interpreter;
+import benfowler.toytown.tiny.Symbol;
+import benfowler.toytown.tiny.err.Errors;
+import benfowler.toytown.tiny.err.EvalException;
+
 
 @RunWith(Parameterized.class)
 public class TestEval {
@@ -87,7 +95,7 @@ public class TestEval {
     @Before
 	public void setup() {
     	if (testEnv == null) {
-    		testEnv = Interpreter.getGlobalEnvironment();
+    		testEnv = Builtins.getGlobalEnvironment();
     		testEnv.put("pi", 3.14);
     	}
 	}
@@ -104,7 +112,7 @@ public class TestEval {
     }
 
     @Test
-	public void testEval() throws LispException {
+	public void testEval() {
 
     	if (expectedOutput instanceof Throwable) {
     		try {

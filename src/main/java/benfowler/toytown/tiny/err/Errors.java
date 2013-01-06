@@ -19,7 +19,7 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny.err;
 
 public enum Errors {
 
@@ -27,27 +27,19 @@ public enum Errors {
 	MISSING_PARENTHESIS("Missing parenthesis"),
 	PREMATURE_END_OF_PROGRAM("Premature end of program"),
 	TOKEN_AFTER_END_OF_PROGRAM("Token after end of program"),
-	INVALID_NUMBER_OF_ARGUMENTS("Illegal number of arguments.  Expected at " +
-			"least %d, at most %d arguments; got %d;"),
+	INVALID_NUMBER_OF_ARGUMENTS("Illegal number of arguments.  Expected at least %d, at most %d arguments; got %d;"),
 	NOT_YET_IMPLEMENTED("Not yet implemented"),
 	CANNOT_EVAL("Cannot eval object of type %s: got '%s'"),
-	EXPECTED_SYMBOL_OR_SPECIAL_FORM("Expected a symbol or special form, " +
-			"but got '%s'"),
-	BAD_IF_CONDITION("IF condition should evaluate to numeric value; " +
-			"but got '%s'"),
+	EXPECTED_SYMBOL_OR_SPECIAL_FORM("Expected a symbol or special form, but got '%s'"),
+	BAD_IF_CONDITION("IF condition should evaluate to numeric value; but got '%s'"),
 	UNKNOWN_SYMBOL("Unknown symbol '%s'"),
-	SYMBOL_MUST_BE_DEFINED("Symbol '%s' must have already been defined, " +
-			"either with a 'define' or as a proc argument"),
-	EXPECTED_LIST_OF_ARGUMENTS("Expected either a symbol or a list of symbols " +
-			"for argument list in lambda expression, got '%s'"),
+	SYMBOL_MUST_BE_DEFINED("Symbol '%s' must have already been defined, either with a 'define' or as a proc argument"),
+	EXPECTED_LIST_OF_ARGUMENTS("Expected either a symbol or a list of symbols for argument list in lambda expression, got '%s'"),
 	INTERNAL_ERROR("Internal error: %s"),
-	INSTANCE_OR_CLASSNAME_EXPECTED("Instance or classname expected for " +
-			"dot-special form; instead got '%s'"),
+	INSTANCE_OR_CLASSNAME_EXPECTED("Instance or classname expected for dot-special form; instead got '%s'"),
 	INSTANCE_OR_CLASSNAME_NOT_FOUND("Class or instance name '%s' not found"),
-	BAD_METHOD_INVOCATION("Bad method invocation: got a %s while invoking " +
-			"%s.%s(): %s"),
-	NONSTATIC_CALL_IN_STATIC_CTX("Non-static method called in " +
-			"static context: %s"),
+	BAD_METHOD_INVOCATION("Bad method invocation: got a %s while invoking %s.%s(): %s"),
+	NONSTATIC_CALL_IN_STATIC_CTX("Non-static method called in static context: %s"),
 	SYMBOL_EXPECTED("Symbol expected"),
 	PROC_EXPECTED("Proc expected"),
 	SYMBOL_NOT_FOUND("Symbol '%s' not found");

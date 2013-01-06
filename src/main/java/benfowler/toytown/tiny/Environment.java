@@ -19,44 +19,25 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny;
 
-/**
- * Special forms supported by the interpreter
- */
-public enum SpecialForm {
+import java.util.HashMap;
 
-	QUOTE("quote"),
-	IF("if"),
-	SET_("set!"),
-	DEFINE("define"),
-	LAMBDA("lambda"),
-	BEGIN("begin"),
-	PROC("proc"),
-	DOT(".");
+public class Environment extends HashMap<String, Object> {
 
-	private final String literalVal;
+	private static final long serialVersionUID = 1L;
 
-	SpecialForm(final String literalVal) {
-		this.literalVal = literalVal;
+	private Environment outer = null;
+
+	public Environment(final Environment outer) {
+		this.outer = outer;
 	}
 
-	public String getLiteralVal() {
-		return literalVal;
-	}
-
-	public static SpecialForm getByLiteralVal(final String literalVal) {
-		for (SpecialForm sf : values()) {
-			if (sf.getLiteralVal().equals(literalVal)) {
-				return sf;
-			}
+	public Object get(final Object key) {
+		Object result = super.get(key);
+		if (result == null && outer != null) {
+			result = outer.get(key);
 		}
-		return null;
+		return result;
 	}
-
-	@Override
-	public String toString() {
-		return literalVal;
-	}
-
 }

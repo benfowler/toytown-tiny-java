@@ -19,11 +19,11 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny;
 
-import static au.id.bjf.toylisp.SpecialForm.DEFINE;
-import static au.id.bjf.toylisp.SpecialForm.IF;
-import static au.id.bjf.toylisp.SpecialForm.LAMBDA;
+import static benfowler.toytown.tiny.SpecialForm.DEFINE;
+import static benfowler.toytown.tiny.SpecialForm.IF;
+import static benfowler.toytown.tiny.SpecialForm.LAMBDA;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -31,6 +31,13 @@ import static org.junit.Assert.fail;
 import java.util.List;
 
 import org.junit.Test;
+
+import benfowler.toytown.tiny.Interpreter;
+import benfowler.toytown.tiny.Lexer;
+import benfowler.toytown.tiny.Symbol;
+import benfowler.toytown.tiny.err.Errors;
+import benfowler.toytown.tiny.err.ParseException;
+
 
 public class TestParser {
 
@@ -93,7 +100,7 @@ public class TestParser {
 			Interpreter.parse(TEST_PRG_TOO_MANY_TOKENS);
 			fail("ParseException should have been thrown.");
 		} catch (ParseException pe) {
-			assertTrue(pe.getError().equals(Errors.TOKEN_AFTER_END_OF_PROGRAM));
+			assertTrue(pe.error.equals(Errors.TOKEN_AFTER_END_OF_PROGRAM));
 		}
 	}
 
@@ -103,7 +110,7 @@ public class TestParser {
 			Interpreter.parse(TEST_PRG_MISSING_PARENTHESIS);
 			fail("ParseException should have been thrown.");
 		} catch (ParseException pe) {
-			assertTrue(pe.getError().equals(Errors.PREMATURE_END_OF_PROGRAM));
+			assertTrue(pe.error.equals(Errors.PREMATURE_END_OF_PROGRAM));
 		}
 	}
 

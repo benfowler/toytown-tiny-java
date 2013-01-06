@@ -19,7 +19,7 @@
  *
  */
 
-package au.id.bjf.toylisp;
+package benfowler.toytown.tiny;
 
 import static org.junit.Assert.assertEquals;
 
@@ -32,6 +32,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import benfowler.toytown.tiny.Builtins;
+import benfowler.toytown.tiny.Environment;
+import benfowler.toytown.tiny.Interpreter;
+import benfowler.toytown.tiny.Symbol;
 
 @RunWith(Parameterized.class)
 public class TestLispyTestSuite {
@@ -105,7 +110,7 @@ public class TestLispyTestSuite {
     @Before
 	public void setup() {
     	if (testEnv == null) {
-    		testEnv = Interpreter.getGlobalEnvironment();
+    		testEnv = Builtins.getGlobalEnvironment();
     		testEnv.put("pi", 3.14);
     	}
 	}
@@ -121,7 +126,7 @@ public class TestLispyTestSuite {
     }
 
     @Test
-	public void testEval() throws LispException {
+	public void testEval() {
 		assertEquals(testName, expectedOutput,
 				Interpreter.eval(Interpreter.read(input), testEnv));
     }
